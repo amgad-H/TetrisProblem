@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Background.png" />
+    <None Remove="Assets\Block-Empty.png" />
+    <None Remove="Assets\Block-I.png" />
+    <None Remove="Assets\Block-J.png" />
+    <None Remove="Assets\Block-L.png" />
+    <None Remove="Assets\Block-O.png" />
+    <None Remove="Assets\Block-S.png" />
+    <None Remove="Assets\Block-T.png" />
+    <None Remove="Assets\Block-Z.png" />
+    <None Remove="Assets\Icon.png" />
+    <None Remove="Assets\Tile-Blue.png" />
+    <None Remove="Assets\Tile-Cyan.png" />
+    <None Remove="Assets\Tile-Green.png" />
+    <None Remove="Assets\Tile-Orange.png" />
+    <None Remove="Assets\Tile-Purple.png" />
+    <None Remove="Assets\Tile-Red.png" />
+    <None Remove="Assets\Tile-Yellow - Kopieren.png" />
+    <None Remove="Assets\TileEmpty.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Background.png" />
+    <Content Include="Assets\Block-Empty.png" />
+    <Content Include="Assets\Block-I.png" />
+    <Content Include="Assets\Block-J.png" />
+    <Content Include="Assets\Block-L.png" />
+    <Content Include="Assets\Block-O.png" />
+    <Content Include="Assets\Block-S.png" />
+    <Content Include="Assets\Block-T.png" />
+    <Content Include="Assets\Block-Z.png" />
+    <Content Include="Assets\Icon.png" />
+    <Content Include="Assets\Tile-Blue.png" />
+    <Content Include="Assets\Tile-Cyan.png" />
+    <Content Include="Assets\Tile-Green.png" />
+    <Content Include="Assets\Tile-Orange.png" />
+    <Content Include="Assets\Tile-Purple.png" />
+    <Content Include="Assets\Tile-Red.png" />
+    <Content Include="Assets\Tile-Yellow - Kopieren.png" />
+    <Content Include="Assets\TileEmpty.png" />
+  </ItemGroup>
+
+</Project>
