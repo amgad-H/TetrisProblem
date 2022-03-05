@@ -17,14 +17,12 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/block-s.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/block-t.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/block-z.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/icon.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tile-blue.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tile-cyan.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tile-green.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tile-orange.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tile-purple.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tile-red.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tile-yellow%20-%20kopieren.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/tileempty.png")]
 
 

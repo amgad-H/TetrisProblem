@@ -19,4 +19,3 @@ C:\Users\amgad\Desktop\Tetris\Tetris\obj\Debug\net6.0-windows\Tetris.dll
 C:\Users\amgad\Desktop\Tetris\Tetris\obj\Debug\net6.0-windows\ref\Tetris.dll
 C:\Users\amgad\Desktop\Tetris\Tetris\obj\Debug\net6.0-windows\Tetris.pdb
 C:\Users\amgad\Desktop\Tetris\Tetris\obj\Debug\net6.0-windows\Tetris.genruntimeconfig.cache
-C:\Users\amgad\Desktop\Tetris\Tetris\obj\Debug\net6.0-windows\Tetris_Content.g.cs

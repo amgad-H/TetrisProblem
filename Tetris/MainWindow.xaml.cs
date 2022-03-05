@@ -23,7 +23,7 @@ namespace Tetris
         private readonly ImageSource[] tileImages = new ImageSource[]
         {
             new BitmapImage(new Uri("Assets/TileEmpty.png", UriKind.Relative)),
-            new BitmapImage(new Uri("Assets/Tile-Yellow.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/Tile-Cyan.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Tile-Yellow.jpg", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Tile-Orange.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Tile-Blue.png", UriKind.Relative)),
@@ -35,8 +35,8 @@ namespace Tetris
         private readonly ImageSource[] blockImages = new ImageSource[]
         {
             new BitmapImage(new Uri("Assets/Block-Empty.png", UriKind.Relative)),
-            new BitmapImage(new Uri("Assets/Block-O.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-I.png", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/Block-O.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-L.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-J.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Block-S.png", UriKind.Relative)),
