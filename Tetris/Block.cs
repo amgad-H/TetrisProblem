@@ -28,11 +28,13 @@ namespace Tetris
             }
         }
 
+        //Rotates a block ClockWise (CW)
         public void RotateCW()
         {
             rotationState = (rotationState + 1) % Tiles.Length;
         }
 
+        //Rotates a block CounterClockWise (CCW)
         public void RotateCCW()
         {
             if(rotationState == 0)
@@ -45,6 +47,7 @@ namespace Tetris
             }
         }
 
+        //Moves a block by given rows and columns
         public void Move(int rows, int columns)
         {
             offset.Row += rows;

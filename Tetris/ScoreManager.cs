@@ -16,6 +16,8 @@ namespace Tetris
         {
             ExtractDataFromTable();
         }
+
+        //Gets path of rang list
         public string GetPath()
         {
             string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -30,16 +32,32 @@ namespace Tetris
             return sFilePath;
         }
 
+        //A handy method that gets number of "Anonymous" players
+        //Used to create new anon names
+        public int GetCountOfAnonPlayers()
+        {
+            int count = 1;
+            foreach(string player in scoreMap.Keys)
+            {
+                if (player.Contains("Anonymous")){
+                    count++;
+                }
+            }
+            return count;
+        }
+
         public Dictionary<string, ScoreAndDate> GetScoreDictionary()
         {
             return scoreMap;
         }
 
+        //Adds fresh player to the score board
         public void AddPlayer(string playerName)
         {
             AddScore(playerName, 0);
         }
 
+        //Adds score to a player
         public void AddScore(string playerName,int score)
         {
             ScoreAndDate scoreAndDate = new ScoreAndDate(score, DateTime.Now);
@@ -62,7 +80,7 @@ namespace Tetris
             scoreMap = (scoreMap.OrderBy(key => key.Value)).ToDictionary(x => x.Key, x => x.Value);
         }
 
-        //will fill dictionary with saved scores
+        //Fills scoreMap with latest score board data
         private void ExtractDataFromTable()
         {
             string[] csv = File.ReadAllLines(GetPath());
@@ -78,7 +96,7 @@ namespace Tetris
             }
         }
 
-        //Saves the scores in an Excel once user wants to exit (implement Save & Exit button first)
+        //Saves the scores in an Excel
         public void SaveScores()
         {
             String csv = String.Join(

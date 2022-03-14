@@ -51,9 +51,14 @@
             <TextBlock Text="HighScores"
                        TextAlignment="Center"/>
 
-            <ListView ItemsSource="{DynamicResource Players}" HorizontalAlignment="Stretch" BorderBrush="Black" BorderThickness="5,5,5,3" FontSize="10">
+            <ListView ItemsSource="{DynamicResource Players}" 
+                      HorizontalAlignment="Stretch" 
+                      BorderBrush="Black" 
+                      BorderThickness="5,5,5,3" 
+                      FontSize="10"
+                      ClipToBounds="True">
 
-                
+
 
                 <ListView.View>
                     <GridView>
@@ -110,25 +115,52 @@
         </Grid>
 
         <Grid x:Name="GameStartMenu"
-              Background="Black"
               Grid.RowSpan="2"
               Grid.ColumnSpan="3"
-              Visibility="Hidden">
+              Visibility="Visible">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/Game-Tetris-Backgrounds.jpg" Stretch="Fill"/>
+            </Grid.Background>
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-                <TextBlock Text="Tetris"
-                           FontSize="50"
-                           TextAlignment="Center"/>
+                <Image x:Name="Tetris_Logo" Source="Assets/Tetris_Logo.png" Width="304" Stretch="UniformToFill" Height="236"/>
 
                 <Button Content="Play"
                         Background="LightGreen"
                         Margin="0,20,0,0"
                         Padding="5"
                         Click="Play_Click"/>
+                <TextBox x:Name="PlayerNameTextBox" Width="306" Height="44" Foreground="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}" Text="Enter Player Name" FontSize="20" HorizontalAlignment="Center" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" GotFocus="PlayerNameTextBox_GotFocus" LostFocus="PlayerNameTextBox_LostFocus"/>
+            </StackPanel>
+        </Grid>
 
-                <TextBox x:Name="PlayerName" Width="200" Height="40" Canvas.Top="50" Canvas.Left="20">
-                    Enter something here
-                </TextBox>
+        <Grid x:Name="GamePauseMenu"
+              Background="#CC000000"
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="3"
+              Visibility="Hidden">
+            <StackPanel HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <TextBlock Text="Game Paused"
+                           FontSize="50"
+                           TextAlignment="Center"/>
+
+                <TextBlock x:Name="CurrentScoreText"
+                           Text="Score: "
+                           FontSize="38"
+                           TextAlignment="Center"/>
+
+                <Button Content="Continue"
+                        Background="LightBlue"
+                        Margin="0,20,0,0"
+                        Padding="5"
+                        Click="Continue_Click"/>
+
+                <Button Content="Return to Menu"
+                        Background="Gray"
+                        Margin="0,20,0,0"
+                        Padding="5"
+                        Click="ReturnToMenu_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

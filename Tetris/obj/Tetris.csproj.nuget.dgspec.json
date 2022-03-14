@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amgad\\Desktop\\Tetris\\Tetris\\Tetris.csproj": {}
+    "C:\\Users\\amgad\\Desktop\\3CHIF\\Tetris\\Tetris\\Tetris.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amgad\\Desktop\\Tetris\\Tetris\\Tetris.csproj": {
+    "C:\\Users\\amgad\\Desktop\\3CHIF\\Tetris\\Tetris\\Tetris.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amgad\\Desktop\\Tetris\\Tetris\\Tetris.csproj",
+        "projectUniqueName": "C:\\Users\\amgad\\Desktop\\3CHIF\\Tetris\\Tetris\\Tetris.csproj",
         "projectName": "Tetris",
-        "projectPath": "C:\\Users\\amgad\\Desktop\\Tetris\\Tetris\\Tetris.csproj",
+        "projectPath": "C:\\Users\\amgad\\Desktop\\3CHIF\\Tetris\\Tetris\\Tetris.csproj",
         "packagesPath": "C:\\Users\\amgad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amgad\\Desktop\\Tetris\\Tetris\\obj\\",
+        "outputPath": "C:\\Users\\amgad\\Desktop\\3CHIF\\Tetris\\Tetris\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\amgad\\AppData\\Roaming\\NuGet\\NuGet.Config",

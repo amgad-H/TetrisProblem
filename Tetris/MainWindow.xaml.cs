@@ -24,7 +24,7 @@ namespace Tetris
         {
             new BitmapImage(new Uri("Assets/TileEmpty.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Tile-Cyan.png", UriKind.Relative)),
-            new BitmapImage(new Uri("Assets/Tile-Yellow.jpg", UriKind.Relative)),
+            new BitmapImage(new Uri("Assets/Tile-Yellow.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Tile-Orange.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Tile-Blue.png", UriKind.Relative)),
             new BitmapImage(new Uri("Assets/Tile-Green.png", UriKind.Relative)),
@@ -128,7 +128,7 @@ namespace Tetris
             DrawGhostBlock(gameState.CurrentBlock);
             DrawBlock(gameState.CurrentBlock);
             DrawNextBlock(gameState.BlockQueue);
-            ScoreText.Text = $"Score: {gameState.Score}";
+            ScoreText.Text = $"{playerName}'s Score: {gameState.Score}";
         }
 
         private async Task GameLoop()
@@ -139,7 +139,7 @@ namespace Tetris
             {
                 if (canStartGame)
                 {
-                    int delay = Math.Max(minDelay, maxDelay - (gameState.Score * delayDecrease));
+                    int delay = Math.Max(minDelay, maxDelay - (gameState.Score/100 * delayDecrease));
                     await Task.Delay(delay);
                     await Task.Delay(500);
                     gameState.MoveBlockDown();
@@ -157,7 +157,7 @@ namespace Tetris
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (!gameState.GameOver)
+            if (!gameState.GameOver && canStartGame)
             {
                 switch (e.Key)
                 {
@@ -179,6 +179,9 @@ namespace Tetris
                     case Key.Space:
                         gameState.DropBlock();
                         break;
+                    case Key.Escape:
+                        PauseGame();
+                        break;
                     default:
                         return;
                 }
@@ -191,6 +194,7 @@ namespace Tetris
         {
             GameStartMenu.Visibility = Visibility.Visible;
             scoreManager = new ScoreManager();
+            GameLoop();
         }
 
         private async void PlayAgain_Click(object sender, RoutedEventArgs e)
@@ -203,23 +207,36 @@ namespace Tetris
             await GameLoop();
         }
 
-        private async void Play_Click(object sender, RoutedEventArgs e)
+        private void Play_Click(object sender, RoutedEventArgs e)
         {
-            playerName = PlayerName.Text;
-            gameState = new GameState();
+            if(PlayerNameTextBox.Text == "Enter Player Name")
+            {
+                playerName = $"Anonymous {scoreManager.GetCountOfAnonPlayers()}";
+            }
+            else
+            {
+                playerName = PlayerNameTextBox.Text;
+            }
             canStartGame = true;
             GameStartMenu.Visibility = Visibility.Hidden;
-            await GameLoop();
         }
 
-        private async void ReturnToMenu_Click(object sender, RoutedEventArgs e)
+        private void ReturnToMenu_Click(object sender, RoutedEventArgs e)
         {
             scoreManager.AddScore(playerName, gameState.Score);
             scoreManager.SaveScores();
             gameState = new GameState();
             canStartGame = false;
             GameOverMenu.Visibility = Visibility.Hidden;
+            GamePauseMenu.Visibility = Visibility.Hidden;
             GameStartMenu.Visibility = Visibility.Visible;
+        }
+
+        private void Continue_Click(object sender, RoutedEventArgs e)
+        {
+            canStartGame = true;
+            GameOverMenu.Visibility = Visibility.Hidden;
+            GamePauseMenu.Visibility = Visibility.Hidden;
         }
 
 
@@ -227,6 +244,30 @@ namespace Tetris
         private void ShowHighScores()
         {
             Resources["Players"] = scoreManager.GetScoreDictionary();
+        }
+
+        private void PlayerNameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(PlayerNameTextBox.Text == "Enter Player Name")
+            {
+                PlayerNameTextBox.Text = "";
+                PlayerNameTextBox.Foreground = new SolidColorBrush(Colors.Black);
+            }
+        }
+
+        private void PlayerNameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PlayerNameTextBox.Text == "")
+            {
+                PlayerNameTextBox.Text = "Enter Player Name";
+                PlayerNameTextBox.Foreground = new SolidColorBrush(Colors.DarkGray);
+            }
+        }
+
+        private void PauseGame()
+        {
+            canStartGame = false;
+            GamePauseMenu.Visibility= Visibility.Visible;
         }
     }
 }

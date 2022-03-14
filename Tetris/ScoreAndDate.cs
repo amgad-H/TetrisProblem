@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
+    //A class housing the score and date of a player
+    //It implements IComparable to compare player scores in order to order them
     internal class ScoreAndDate : IComparable<ScoreAndDate>
     {
         private int score;
@@ -28,7 +30,7 @@ namespace Tetris
 
         public int CompareTo(ScoreAndDate? other)
         {
-            return other.score.CompareTo(this.score);
+            return other != null ? other.score.CompareTo(this.score) : 0;
         }
     }
 }

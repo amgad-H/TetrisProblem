@@ -24,16 +24,19 @@ namespace Tetris
             grid = new int[rows,columns];
         }
 
+        //Checks if the given coordinates are inside Playing area boundaries
         public bool IsInside(int r, int c)
         {
             return r >= 0 && r < Rows && c >= 0 && c < Columns;
         }
 
+        //Checks if cell is empty
         public bool IsEmpty(int r, int c)
         {
             return IsInside(r, c) && grid[r, c] == 0;
         }
 
+        //Checks if whole row is full
         public bool IsRowFull(int r)
         {
             bool isFull = true;
@@ -47,6 +50,7 @@ namespace Tetris
             return isFull;
         }
 
+        //Checks if ANY cell in row is occupied
         public bool IsRowEmpty(int r)
         {
             bool isFull = true;
@@ -60,6 +64,7 @@ namespace Tetris
             return isFull;
         }
 
+        //Deletes cells at given row index
         private void ClearRow(int r)
         {
             for(int c = 0; c < Columns; c++)
@@ -68,6 +73,7 @@ namespace Tetris
             }
         }
 
+        //Moves rows downwards
         private void MoveRowDown(int r, int numRows)
         {
             for(int c = 0; c < Columns; c++)
@@ -77,6 +83,9 @@ namespace Tetris
             }
         }
 
+        //Clears rows that are clearable
+        //Moves left rows down
+        //Counts and returns points depending on how many rows were cleared
         public int ClearFullRows()
         {
             int cleared = 0;

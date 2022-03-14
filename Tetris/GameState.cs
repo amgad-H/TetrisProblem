@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tetris
 {
+    //Class where game objects interactions is handled
     internal class GameState
     {
         private Block currentBlock;
@@ -40,6 +41,7 @@ namespace Tetris
             CurrentBlock = BlockQueue.GetAndUpdate();
         }
 
+        //Checks if block is at legal position
         private bool BlockFits()
         {
             bool blockFits = true;
@@ -90,11 +92,15 @@ namespace Tetris
             }
         }
 
+        //Check if 2 at the top hidden rows have ANY of their cells occupied to end the game
         private bool IsGameOver()
         {
             return !(GameGrid.IsRowEmpty(0) && GameGrid.IsRowEmpty(1));
         }
 
+        //Visualizes the block falling down
+        //When block is set, it orders rows to be checked and cleared, then it gets another block
+        //Stops game if game is over
         private void PlaceBlock()
         {
             foreach(Position p in CurrentBlock.TilesPosition())
@@ -103,8 +109,6 @@ namespace Tetris
             }
 
             Score += GameGrid.ClearFullRows();
-
-            GameGrid.ClearFullRows();
             if (IsGameOver())
             {
                 GameOver = true;
@@ -115,6 +119,7 @@ namespace Tetris
             }
         }
 
+        //Moves the actual block object
         public void MoveBlockDown()
         {
             CurrentBlock.Move(1, 0);
@@ -125,6 +130,7 @@ namespace Tetris
             }
         }
 
+        //Calculates the drop distance of a tile of a block
         private int TileDropDistance(Position p)
         {
             int drop = 0;
@@ -135,6 +141,7 @@ namespace Tetris
             return drop;
         }
 
+        //Calculates drop distance of a whole block
         public int BlockDropDistance()
         {
             int drop = GameGrid.Rows;
@@ -145,6 +152,7 @@ namespace Tetris
             return drop;
         }
 
+        //Moves block down as much as allowed (puts block instantly down)
         public void DropBlock()
         {
             CurrentBlock.Move(BlockDropDistance(), 0);
