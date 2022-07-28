@@ -1,0 +1,2 @@
+New file created: 28.07.2022 10:36:08
+This file aids in making commits with the RELEASE comment!
